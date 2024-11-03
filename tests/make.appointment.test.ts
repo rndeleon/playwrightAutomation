@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-async function login(page:any, username: 'John Doe', password: "ThisIsNotAPassword") {
+async function login(page:any, username: string, password: string) {
   // Fill in the username and password fields
 
   await page.getByLabel('Username').fill(username);
@@ -8,7 +8,6 @@ async function login(page:any, username: 'John Doe', password: "ThisIsNotAPasswo
   // Click the login button
   await page.getByRole('button', { name: 'Login' }).click();
 }
-
 
 test.beforeEach(async ({ page }) => {
   await page.goto('https://katalon-demo-cura.herokuapp.com');
@@ -20,7 +19,13 @@ test.beforeEach(async ({ page }) => {
   await expect(page.locator("xpath=//h2[text()='Login']")).toBeVisible();
 });
 
-test('Make Appointment', async ({ page }) => {
+test('Start Appointment', async ({ page }) => {
+  await login(page, 'John Doe', 'ThisIsNotAPassword');
+  await expect(page.locator("xpath=//h2[text()='Make Appointment']")).toBeVisible();
+
+}); 
+
+test('Create Appointment', async ({ page }) => {
   await login(page, 'John Doe', 'ThisIsNotAPassword');
 
   await expect(page.locator("xpath=//h2[text()='Make Appointment']")).toBeVisible();
