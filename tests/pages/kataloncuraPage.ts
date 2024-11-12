@@ -10,7 +10,7 @@ export class katalonPage {
         this.page = page;
         this.makeAppointment = page.locator('a', { hasText: 'Make Appointment'});
         this.menu = page.locator('a',{hasText: 'menu-toggle'});
-        this.loginBUtton = page.locator('h2',{hasText: 'Login'});
+        this.loginBUtton = page.locator('button',{hasText: 'Login'});
       }
     
     async gotoAppointment(){
