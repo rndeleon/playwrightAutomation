@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { katalonPage } from './pages/kataloncuraPage';
+import { katalonPage } from './pages/kataloncuraPage.ts';
 
 
 test('Test', async ({page}) => {

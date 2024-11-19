@@ -15,7 +15,7 @@ export class katalonPage {
     
     async gotoAppointment(){
         await this.page.goto('https://katalon-demo-cura.herokuapp.com');
-        await this.makeAppointment.click()
+        await this.makeAppointment.click();
         await expect(this.loginBUtton).toBeVisible();
     }
 }
